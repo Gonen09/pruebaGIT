@@ -1,0 +1,1 @@
+<p class=importante> Este es el texto traído del servidor con Ajax. </p>

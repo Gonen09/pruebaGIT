@@ -1,0 +1,27 @@
+body {
+    font-family: arial;
+    font-size:10pt;
+}
+
+h1 {
+    text-align:left;
+    font-size:22pt;
+}
+
+h2 {
+    text-align:left;
+    font-size:16pt;
+}
+
+h3 {
+    text-align:left;
+    font-size:12pt;
+}
+
+p {
+    color: blue;
+}
+
+p.importante {
+    color: red;			
+}

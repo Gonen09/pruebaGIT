@@ -1,0 +1,101 @@
+<head>
+    <title> Ejemplo Ajax </title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <style> p { color: black; width: 80%;margin-left: 20px; }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script>
+        //adaptado de http://www.w3schools.com/ajax/default.asp
+        function cargaTexto() {
+            var xmlhttp;
+
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("texto").innerHTML = xmlhttp.responseText; //funcion de callback
+                }
+            }
+            xmlhttp.open("GET", "ajax.txt", true); //preparacion para mostrar el resultado
+            xmlhttp.send();
+        }
+
+        function cargaXML() {
+            var xmlhttp, texto, id;
+
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange = function() {
+
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    //texto = "hola";
+                    xmlDoc = xmlhttp.responseXML; //respuesta en XML y se pueden extraer los elementos por su etiqueta
+                    id = xmlDoc.getElementsByTagName("id");
+                    nombre = xmlDoc.getElementsByTagName("nombre");
+                    apellido = xmlDoc.getElementsByTagName("apellido");
+                    pais = xmlDoc.getElementsByTagName("pais");
+                    texto = "<p class= importante>";
+                    texto = texto + id[0].firstChild.nodeValue + ", ";
+                    texto = texto + nombre[0].firstChild.nodeValue + ", ";
+                    texto = texto + apellido[0].firstChild.nodeValue + ", ";
+                    texto = texto + pais[0].firstChild.nodeValue;
+                    texto = texto + "</p>";
+                    document.getElementById("xml").innerHTML = texto;
+                }
+            }
+            xmlhttp.open("GET", "ajax.xml", true);
+            xmlhttp.send();
+        }
+
+        function cargaBD(str) { //str es el ID del usuario
+
+            var xmlhttp;
+
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("bd").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "ajax.php?nombre=" + str, true); //true: asincróno
+            xmlhttp.send();
+        }
+    </script>
+</head>
+
+<!-- Inicio del contenido HTML                                   -->
+
+<body>
+    <h1> Ajax - Carga Archivo de texto sin estructura. </h1>
+    <div id="texto"> Aquí se mostrará el texto traído desde el servidor.</div>
+
+    <button type="button" onclick="cargaTexto()" style="margin-left: 1px; margin-top: 1px;"> Cargar Texto </button>
+
+    <h1> Ajax - Carga Archivo XML. </h1>
+    <div id="xml"> Aquí se mostrarán los datos traídos desde el servidor como XML.</div>
+    <button type="button" onclick="cargaXML()"> Cargar XML </button>
+
+    <h1> Ajax - Consulta BD. </h1>
+
+    <input type="text" id="usuario" value="jperez" onblur="cargaBD(this.value)">
+    <!--onblur: cuando pierde el foco-->
+    <button type="button" onclick="cargaBD(document.getElementById(&quot;usuario&quot;).value)"> Cargar Datos BD </button>
+    <div id="bd"> Aquí se mostrarán los datos consultados desde la base de datos.</div>
+</body>

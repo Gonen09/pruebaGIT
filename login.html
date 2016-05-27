@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inicio sesión</title>
+        <meta charset="UTF-8">
+        <link type="text/css" rel="stylesheet" href="./css/stylesheet_login.css">
+    </head>
+    
+    <body>
+        <div id="registrar">
+            <form name="form-registro" action="sign_up.html">
+                <button id="registro">Registrarse</button>
+            </form>
+                
+        </div>
+        <div id="envoltura">
+            <div id="contenedor">
+                <div id="cabecera_login">
+                    <h1>Inicio Sesión</h1>
+                </div>
+                
+                <div id="cuerpo">
+                        <p><label>Nombre Usuario: 
+                        <form name="form-login" action="consulta_login.php" method="post" autocomplete="on">
+                            <input name="user" type="text" id="usuario" placeholder="Ingresar usuario" autofocus="" required=""></label></p>
+                        <p id="button"><input type="submit" name="submit" value="Consultar" class="boton"</p>               
+                    </form>
+                </div>
+                <div id="pie">Sistema de login y registro</div>
+            </div>
+        </div>     
+    </body>
+</html>
+    

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulario</title>
+        <meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="./css/stylesheet_login.css"/>
+    </head>
+
+    <body>
+        <div id="registrar">
+            <form name="form-registro" action="catalogo.php">
+                <button id="registro">Volver</button>
+            </form>
+        </div>
+    
+        <div id="envoltura">
+            <div id="contenedor">
+                <div id="cabecera">
+                    <img src="./css/images/iconoformulario.png"> 
+                </div>
+
+                <div id="cuerpo">
+                    <form id="form-login" action="registrar_bd.php" method="post">
+                        <p><label for="nombre">Nombre:  </label><input name="nombre" type="text" id="nombre" class="nombre" placeholder="Pon tu nombre" autofocus=""/></p>
+
+                        <p><label for="apellido">Apellido: <input name="apellido" type="text" id="apellidos" class="apellidos" placeholder="Pon tus apellidos" /></label></p>
+
+                        <p><label for="usuario">Nombre de usuario: <input name="usuario" type="text" id="usuario" class="usuario"/></label></p>
+
+                        <p><label for="foto">Subir foto: </label></p>
+                            <input type="file" name="foto" id="foto"/>
+
+                        <p><label for="region">Región:</label></p>
+                            <input name="region" type="text" id="region" class="region" placeholder="Ingrese región: " /></p>
+
+                        <p id="bot"><input name="submit" type="submit" id="boton" value="Registrar" class="boton"/></p>
+                    </form>
+                </div>
+
+                <div id="pie">Formulario de Registro</div>
+            </div><!-- fin contenedor -->
+
+        </div>
+
+    </body> 
+</html>
