@@ -1,0 +1,16 @@
+
+MYSQL
+U:root
+PW: userena2534
+c:/xampp/security/mysqlrootpasswd.txt
+
+XAMPP
+U:root
+PW: userena2534
+c:/xampp/security/xamppdirpasswd.txt
+
+DATOS PERSONALES
+
+C:\xampp\security\xampp.users
+C:\xampp\htdocs\xampp\.htaccess
+C:\xampp\security\xamppdirpasswd.txt
